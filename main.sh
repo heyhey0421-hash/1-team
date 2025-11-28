@@ -18,11 +18,7 @@ MONTH_DIR="$DATA_DIR/${YEAR}-${MONTH}"
 mkdir -p "$MONTH_DIR"
 
 # -----------------------------
-<<<<<<< HEAD
-# 2) 월 예산 파일 생성 (새 달일 때만 작성)
-=======
 # 2) 월 예산 파일 생성
->>>>>>> 3596564 (temp save before pull)
 # -----------------------------
 MONTH_INFO="${MONTH_DIR}/month_info.txt"
 
@@ -36,10 +32,6 @@ if [ ! -f "$MONTH_INFO" ]; then
         echo "GOAL=$GOAL"
     } > "$MONTH_INFO"
 else
-<<<<<<< HEAD
-    # 기존 월 정보 불러오기
-=======
->>>>>>> 3596564 (temp save before pull)
     source "$MONTH_INFO"
 fi
 
@@ -47,11 +39,7 @@ fi
 # 3) 날짜별 지출 파일
 # -----------------------------
 FILE="${MONTH_DIR}/${YEAR}-${MONTH}-${DAY}.txt"
-<<<<<<< HEAD
-touch "$FILE"     # 기존 파일 유지, 없으면 생성
-=======
 touch "$FILE"
->>>>>>> 3596564 (temp save before pull)
 
 # -----------------------------
 # 4) 자동 백업 함수
@@ -61,22 +49,6 @@ backup_file() {
     mkdir -p "$BAK_MONTH_DIR"
     cp "$FILE" "${BAK_MONTH_DIR}/${YEAR}-${MONTH}-${DAY}.txt.bak"
 }
-<<<<<<< HEAD
-
-backup_file   # 초기 파일 백업
-
-# -----------------------------
-# 5) 메인 메뉴
-# -----------------------------
-while true; do
-    echo ""
-    echo "1) 소비 지출 입력"
-    echo "2) 통계 보기 (월 전체)"
-    echo "3) 종료"
-    read -p "선택: " CH
-
-     case $CH in
-=======
 backup_file
 
 # -----------------------------
@@ -92,7 +64,6 @@ while true; do
     read -p "번호 선택: " CH
 
     case $CH in
->>>>>>> 3596564 (temp save before pull)
         1)
             echo ""
             echo "=== 지출 입력 ==="
@@ -113,34 +84,14 @@ while true; do
             ;;
         
         2)
-<<<<<<< HEAD
-            echo ""
-            echo "==== 월간 통계 ===="
-            echo "월 예상 예산: $EXPECTED"
-            echo "월 목표    예산: $GOAL"
-            echo ""
-
-            # 월 전체 파일 합쳐서 계산
-            awk -F, '/^[0-9]/ {sum[$2]+=$3} END {
-                for (c in sum) printf "%s: %d원\n", c, sum[c]
-            }' ${MONTH_DIR}/*.txt
-            ;;
-        
-        3)
-            echo "종료합니다."
-            exit ;;
-
-        *)
-            echo "잘못된 선택"
-=======
             # 📌 세부 통계 선택 메뉴
             while true; do
                 echo ""
                 echo "📊 === 통계 메뉴 ==="
-                echo "1) 월 총합 보기"
+                echo "1) 월 총합 보기    "
                 echo "2) 카테고리별 합계 "
                 echo "3) 소비 그래프 보기 "
-                echo "4) 절약 점수 확인  "
+                echo "4) 절약 점수 확인 "
                 echo "5) 뒤로가기"
                 echo "========================"
                 read -p "번호 선택: " SUB
@@ -162,7 +113,6 @@ while true; do
 
         *)
             echo "잘못된 선택입니다."
->>>>>>> 3596564 (temp save before pull)
             ;;
     esac
 done
