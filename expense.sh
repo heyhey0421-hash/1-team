@@ -49,7 +49,8 @@ backup_file() {
     mkdir -p "$BAK_MONTH_DIR"
     cp "$FILE" "${BAK_MONTH_DIR}/${YEAR}-${MONTH}-${DAY}.txt.bak"
 }
-backup_file
+
+backup_file   # 초기 파일 백업
 
 # -----------------------------
 # 5) 메인 메뉴 시작
