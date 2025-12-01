@@ -101,7 +101,7 @@ while true; do
                     1) ./view_total.sh ;;
                     2) ./view_category.sh ;;
                     3) ./view_graph.sh ;;
-                    4) ./daily_score.sh ;;
+                    4) ./daily_score.sh "$YEAR" "$MONTH" "$DAY";;
                     5) break ;;     # 메인 메뉴로 돌아가기
                     *) echo "잘못된 입력입니다." ;;
                 esac
