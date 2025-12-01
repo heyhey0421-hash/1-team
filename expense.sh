@@ -42,16 +42,6 @@ fi
 FILE="${MONTH_DIR}/${YEAR}-${MONTH}-${DAY}.txt"
 touch "$FILE"     # 기존 파일 유지, 없으면 생성
 
-# -----------------------------
-# 4) 자동 백업 함수
-# -----------------------------
-backup_file() {
-    BAK_MONTH_DIR="$BACKUP_DIR/${YEAR}-${MONTH}"
-    mkdir -p "$BAK_MONTH_DIR"
-    cp "$FILE" "${BAK_MONTH_DIR}/${YEAR}-${MONTH}-${DAY}.txt.bak"
-}
-
-backup_file   # 초기 파일 백업
 
 # -----------------------------
 # 5) 메인 메뉴
