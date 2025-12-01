@@ -19,6 +19,12 @@ fi
 # 예상/목표 예산 불러오기
 source "$MONTH_INFO"
 
+# month_info 가 없으면 종료
+if [ ! -f "$MONTH_INFO" ]; then
+    echo "⚠️ 아직 month_info.txt가 없습니다! 먼저 main.sh에서 설정하세요."
+    exit
+fi
+
 # 오늘 사용 금액 계산
 TODAY_TOTAL=$(awk -F, '{sum+=$3} END {print sum}' "$FILE")
 
